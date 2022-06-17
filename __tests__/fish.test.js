@@ -16,6 +16,13 @@ describe('backend-express-template routes', () => {
     ];
     expect(res.body).toEqual(expected);
   });
+
+  it('gets a single fish', async () => {
+    const res = await request(app).get('/fishes/1');
+    const expected = { 'color': 'Blue', 'id': 1, 'name': 'Nemo', 'weight': 10 };
+    expect(res.body).toEqual(expected);
+  });
+  
   afterAll(() => {
     pool.end();
   });
