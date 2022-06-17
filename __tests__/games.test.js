@@ -25,6 +25,14 @@ describe('game routes', () => {
     const expected = { 'id': 1, 'name': 'Super Mario', 'genre': 'Platformer', 'price': 50 };
     expect(res.body).toEqual(expected);
   });
+
+
+  it('creates a game', async () => {
+    const res = await request(app)
+      .post('/games')
+      .send({ name: 'Super Mario Bros', genre: 'Platformer', price: 50 });
+    expect(res.body).toEqual({ name: 'Super Mario Bros', genre: 'Platformer', price: 50, id: 4 });
+  });
   
   afterAll(() => {
     pool.end();
