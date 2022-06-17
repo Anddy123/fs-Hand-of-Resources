@@ -29,6 +29,13 @@ describe('backend-express-template routes', () => {
       .send({ name: 'Steve', color: 'Green', weight: 200 });
     expect(res.body).toEqual({ name: 'Steve', color: 'Green', weight: 200, id: 4 });
   });
+
+  it('updates a fish', async () => {
+    const res = await request(app)
+      .put('/fishes/1')
+      .send({ name: 'Nemo', color: 'Green', weight: 10 });
+    expect(res.body).toEqual({ name: 'Nemo', color: 'Green', weight: 10, id: 1 });
+  });
   
   afterAll(() => {
     pool.end();
