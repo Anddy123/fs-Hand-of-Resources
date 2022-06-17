@@ -41,6 +41,13 @@ describe('dog routes', () => {
       .send({ name: 'Rex', color: 'Green', type: 'Dog' });
     expect(res.body).toEqual({ name: 'Rex', color: 'Green', type: 'Dog', id: 1 });
   });
+
+
+  it('deletes a dog', async () => {
+    const res = await request(app).delete('/dogs/1');
+    expect(res.text).toEqual('Deleted dog with id 1');
+  });
+
   
   afterAll(() => {
     pool.end();
