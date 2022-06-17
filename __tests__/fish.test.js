@@ -36,7 +36,12 @@ describe('backend-express-template routes', () => {
       .send({ name: 'Nemo', color: 'Green', weight: 10 });
     expect(res.body).toEqual({ name: 'Nemo', color: 'Green', weight: 10, id: 1 });
   });
-  
+
+  it('deletes a fish', async () => {
+    const res = await request(app).delete('/fishes/1');
+    expect(res.text).toEqual('Deleted fish with id 1');
+  }
+  );
   afterAll(() => {
     pool.end();
   });
