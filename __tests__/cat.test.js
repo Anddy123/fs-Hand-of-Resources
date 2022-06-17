@@ -40,6 +40,13 @@ describe('cat routes', () => {
       .send({ name: 'Garfield', color: 'Green', type: 'Tiger' });
     expect(res.body).toEqual({ name: 'Garfield', color: 'Green', type: 'Tiger', id: 1 });
   });
+
+
+  it('deletes a cat', async () => {
+    const res = await request(app).delete('/cats/1');
+    expect(res.text).toEqual('Deleted cat with id 1');
+  });
+
   
   afterAll(() => {
     pool.end();
