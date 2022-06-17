@@ -33,6 +33,14 @@ describe('game routes', () => {
       .send({ name: 'Super Mario Bros', genre: 'Platformer', price: 50 });
     expect(res.body).toEqual({ name: 'Super Mario Bros', genre: 'Platformer', price: 50, id: 4 });
   });
+
+
+  it('updates a game', async () => {
+    const res = await request(app)
+      .put('/games/1')
+      .send({ name: 'Super Mario', genre: 'Platformer', price: 100 });
+    expect(res.body).toEqual({ name: 'Super Mario', genre: 'Platformer', price: 100, id: 1 });
+  });
   
   afterAll(() => {
     pool.end();
