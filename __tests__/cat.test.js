@@ -32,6 +32,14 @@ describe('cat routes', () => {
       .send({ name: 'Steve', color: 'Green', type: 'Cat' });
     expect(res.body).toEqual({ name: 'Steve', color: 'Green', type: 'Cat', id: 4 });
   });
+
+
+  it('updates a cat', async () => {
+    const res = await request(app)
+      .put('/cats/1')
+      .send({ name: 'Garfield', color: 'Green', type: 'Tiger' });
+    expect(res.body).toEqual({ name: 'Garfield', color: 'Green', type: 'Tiger', id: 1 });
+  });
   
   afterAll(() => {
     pool.end();
