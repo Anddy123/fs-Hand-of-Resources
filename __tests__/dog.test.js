@@ -26,6 +26,14 @@ describe('dog routes', () => {
     expect(res.body).toEqual(expected);
   });
 
+
+  it('creates a dog', async () => {
+    const res = await request(app)
+      .post('/dogs')
+      .send({ name: 'Steve', color: 'Green', type: 'Dog' });
+    expect(res.body).toEqual({ name: 'Steve', color: 'Green', type: 'Dog', id: 4 });
+  });
+  
   afterAll(() => {
     pool.end();
   });
