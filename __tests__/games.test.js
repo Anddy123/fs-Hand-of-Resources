@@ -45,9 +45,9 @@ describe('game routes', () => {
 
   it('deletes a game', async () => {
     const res = await request(app).delete('/games/1');
-    expect(res.body).toEqual('Deleted game 1');
+    expect(res.text).toEqual('Deleted game 1');
   });
-  
+
   afterAll(() => {
     pool.end();
   });
