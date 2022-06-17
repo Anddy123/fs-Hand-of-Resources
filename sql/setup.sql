@@ -12,7 +12,7 @@ CREATE TABLE albums (
     name VARCHAR(255) NOT NULL,
     description VARCHAR(255) NOT NULL,
     cover_img VARCHAR(255) NOT NULL
-)
+);
 
 CREATE TABLE fishes (
     id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
