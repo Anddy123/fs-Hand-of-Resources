@@ -41,6 +41,12 @@ describe('game routes', () => {
       .send({ name: 'Super Mario', genre: 'Platformer', price: 100 });
     expect(res.body).toEqual({ name: 'Super Mario', genre: 'Platformer', price: 100, id: 1 });
   });
+
+
+  it('deletes a game', async () => {
+    const res = await request(app).delete('/games/1');
+    expect(res.body).toEqual('Deleted game 1');
+  });
   
   afterAll(() => {
     pool.end();
