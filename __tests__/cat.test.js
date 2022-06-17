@@ -18,6 +18,14 @@ describe('cat routes', () => {
     expect(res.body).toEqual(expected);
   });
 
+
+  it('gets a single cat', async () => {
+    const res = await request(app).get('/cats/1');
+    const expected = { 'color': 'Orange', 'id': 1, 'name': 'Garfield', 'type': 'Tiger' };
+    expect(res.body).toEqual(expected);
+  });
+
+  
   afterAll(() => {
     pool.end();
   });
