@@ -24,6 +24,23 @@ describe(' routes', () => {
     const expected = { 'id': 1, 'name': 'The Dark Side of the Moon', 'artist': 'Pink Floyd', 'year': 1973 };
     expect(res.body).toEqual(expected);
   });
+
+
+  it('creates a new album', async () => {
+    const res = await request(app)
+      .post('/albums')
+      .send({
+        name: 'New new',
+        artist: 'Eminem',
+        year: 2004
+      });
+    expect(res.body).toEqual({
+      id: 4,
+      name: 'New new',
+      artist: 'Eminem',
+      year: 2004
+    });
+  });
   
   afterAll(() => {
     pool.end();
