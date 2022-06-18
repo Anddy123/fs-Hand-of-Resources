@@ -61,9 +61,9 @@ describe(' routes', () => {
 
   it('deletes an album', async () => {
     const res = await request(app).delete('/albums/1');
-    expect(res.body).toEqual('Deleted album 1');
+    expect(res.text).toEqual('Deleted album 1');
   });
-  
+
   afterAll(() => {
     pool.end();
   });
