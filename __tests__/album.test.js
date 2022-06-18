@@ -18,6 +18,13 @@ describe(' routes', () => {
     ];
     expect(res.body).toEqual(expected);
   });
+
+  it('gets one album', async () => {
+    const res = await request(app).get('/albums/1');
+    const expected = { 'id': 1, 'name': 'The Dark Side of the Moon', 'artist': 'Pink Floyd', 'year': 1973 };
+    expect(res.body).toEqual(expected);
+  });
+  
   afterAll(() => {
     pool.end();
   });
