@@ -41,6 +41,22 @@ describe(' routes', () => {
       year: 2004
     });
   });
+
+
+  it('updates an album', async () => {
+    const res = await request(app)
+      .put('/albums/1')
+      .send({
+        name: 'The Dark Side of the Moon',
+        artist: 'Pink Floyd',
+        year: 1974});
+    expect(res.body).toEqual({
+      id: 1,
+      name: 'The Dark Side of the Moon',
+      artist: 'Pink Floyd',
+      year: 1974
+    });
+  });
   
   afterAll(() => {
     pool.end();
