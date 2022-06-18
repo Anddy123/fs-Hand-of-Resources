@@ -49,7 +49,7 @@ describe(' routes', () => {
       .send({
         name: 'The Dark Side of the Moon',
         artist: 'Pink Floyd',
-        year: 1974});
+        year: 1974 });
     expect(res.body).toEqual({
       id: 1,
       name: 'The Dark Side of the Moon',
@@ -57,7 +57,7 @@ describe(' routes', () => {
       year: 1974
     });
   });
-  
+
   afterAll(() => {
     pool.end();
   });
