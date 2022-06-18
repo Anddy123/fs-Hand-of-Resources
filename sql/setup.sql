@@ -10,8 +10,8 @@ DROP TABLE IF EXISTS albums CASCADE;
 CREATE TABLE albums (
     id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
-    description VARCHAR(255) NOT NULL,
-    cover_img VARCHAR(255) NOT NULL
+    artist VARCHAR(255) NOT NULL,
+    year INT NOT NULL
 );
 
 CREATE TABLE fishes (
@@ -62,7 +62,7 @@ INSERT INTO games (name, genre, price) VALUES
 ('Pokemon', 'RPG', 100),
 ('Call of Duty', 'Shooter', 150);
 
-INSERT INTO albums (name, description, cover_img) VALUES
-('Album 1', 'This is album 1', 'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60'),
-('Album 2', 'This is album 2', 'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60'),
-('Album 3', 'This is album 3', 'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60');
+INSERT INTO albums (name, artist, year) VALUES
+('The Dark Side of the Moon', 'Pink Floyd', 1973),
+('The Body and the Mind', 'Eminem', 2001),
+('The Black Album', 'Metallica', 2004);
